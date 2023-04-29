@@ -20,9 +20,11 @@ psql
 \l
 ```
  
-### Use to display a list of all users and their rights 
+### Use to display a list of all users and their rights in the current database server
 ```sql
 \du
+# OR
+\du+
 ```
  	
 ### To set the password for a user
@@ -46,5 +48,31 @@ CREATE DATABASE <database_name>;
 grant all privileges on database <database_name> to <username>;
 ```
 
- 
+### connect to database with user
+```sql
+psql -h localhost -d postgres -U <username>
+```
+
+### To start database
+```sql
+sudo service postgresql start
+```
+### Display information about current connection
+```sql
+\conninfo              
+```
+
+### TO ALTER A USER ROLES
+https://www.postgresql.org/docs/9.2/sql-alterrole.html
+```sql
+ALTER ROLE <username> <role_name>;  
+```
+
+### LIST ALL DATABASES
+```sql
+\l 				        => list databases with there users
+\l+ 				    => list databases with more informations
+\db <database_name>  	=> This will display information about the tables, functions, and other objects in the database.
+```
+
 
